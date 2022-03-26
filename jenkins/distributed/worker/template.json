@@ -9,13 +9,13 @@
         "type" : "amazon-ebs",
         "profile" : "{{user `aws_profile`}}",
         "region" : "{{user `region`}}",
-        "access_key": "AKIA3LNZXTLTMVC7OZLO",
-        "secret_key": "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",
+        "access_key": "ACCESS-KEY",
+        "secret_key": "SECRET-KEY",
         "instance_type" : "{{user `instance_type`}}",
         "source_ami" : "{{user `source_ami`}}",
         "ssh_username" : "ec2-user",
         "ami_name" : "jenkins-worker1",
-        "ami_description" : "Jenkins worker's AMI for togoinnov",
+        "ami_description" : "Jenkins worker's AMI",
         "run_tags" : {
             "Name" : "jenkins-worker"
         }

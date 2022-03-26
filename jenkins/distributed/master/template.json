@@ -8,14 +8,14 @@
   "builders" : [
     {
       "type" : "amazon-ebs",
-      "access_key": "AKIA3LNZXTLTMVC7OZLO",
-      "secret_key": "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",
+      "access_key": "ACCESS-KEY",
+      "secret_key": "SECRET-KEY",
       "region" : "{{user `region`}}",
       "instance_type" : "{{user `instance_type`}}",
       "source_ami": "{{user `source_ami`}}",
       "ssh_username" : "ec2-user",
-      "ami_name" : "jenkins-master-togoinnov-2.204.1",
-      "ami_description" : "Amazon Linux Image with Jenkins Server for togoinnov",
+      "ami_name" : "jenkins-master-XXXX-2.204.1",
+      "ami_description" : "Amazon Linux Image with Jenkins Server",
       "run_tags" : {
             "Name" : "jenkins-master"
         }

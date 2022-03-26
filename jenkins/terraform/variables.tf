@@ -9,7 +9,7 @@ variable "region" {
 variable "author" {
   type = string
   description = "Created by"
-  default = "Bernard Adanelssossi"
+  default = "Bernard Adanlessossi"
 }
 
 variable "availability_zones" {
@@ -27,43 +27,41 @@ variable "public_key" {
 variable "access_key" {
   type = string
   description = "Access Key"
-  default = "AKIA3LNZXTLTMVC7OZLO"
+  default = "ACCESS-KEY"
 }
 
 variable "secret_key" {
   type = string
   description = "Secret Key"
-  default = "MAiCD+2Lh5UYYj5mv39V0Hlb/VNB2mKXny9jb6dl"
+  default = "SECRET-KEY"
 }
 
 variable "hosted_zone_id" {
   type = string
   description = "Route53 hosted zone id"
-  default = "Z07219722VMKDHAV5PCTD"
+  default = "HOSTED-ZONE-ID"
 }
 
 variable "domain_name" {
   type = string
   description = "Domain name"
-  default = "togoinov.com"
+  default = "EXAMPLE.com"
 }
 
 variable "ssl_arn" {
   type = string
   description = "ACM SSL ARN"
-  default = "arn:aws:acm:eu-central-1:780462955238:certificate/e735da73-ab0d-409c-8730-bfee8d6097c6"
+  default = "arn:aws:acm:eu-central-1:xxxxxxxxxx:certificate/e735da73-ab0d-409c-8730-bfee8d6097c6"
 }
 
 variable "jenkins_username" {
   type = string
   description = "Jenkins admin user"
-  default = "admin-inov"
 }
 
 variable "jenkins_password" {
   type = string
   description = "Jenkins admin password"
-  default = "Inn0vati0n"
 }
 
 variable "jenkins_credentials_id" {
@@ -76,7 +74,7 @@ variable "jenkins_credentials_id" {
 variable "vpc_name" {
   type = string
   description = "VPC name"
-  default     = "togoinov-vpc"
+  default     = "example-vpc"
 }
 
 variable "cidr_block" {
