@@ -1,31 +1,30 @@
 {
-    "variables" : {
-      "region": "eu-central-1",
-      "source_ami": "ami-0a6dc7529cd559185",
-      "instance_type": "t2.micro"
-    },
-    "builders" : [
-      {
-        "type" : "amazon-ebs",
-        "profile" : "{{user `aws_profile`}}",
-        "region" : "{{user `region`}}",
-        "access_key": "ACCESS-KEY",
-        "secret_key": "SECRET-KEY",
-        "instance_type" : "{{user `instance_type`}}",
-        "source_ami" : "{{user `source_ami`}}",
-        "ssh_username" : "ec2-user",
-        "ami_name" : "jenkins-worker1",
-        "ami_description" : "Jenkins worker's AMI",
-        "run_tags" : {
-            "Name" : "jenkins-worker"
-        }
+  "variables": {
+    "region": "eu-central-1",
+    "source_ami": "ami-0a6dc7529cd559185",
+    "instance_type": "t2.micro"
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "profile": "{{user `aws_profile`}}",
+      "region": "{{user `region`}}",
+      "instance_type": "{{user `instance_type`}}",
+      "iam_instance_profile": "{{user `jenkins_iam_instance_profile`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "ssh_username": "ec2-user",
+      "ami_name": "jenkins-worker1",
+      "ami_description": "Jenkins worker's AMI for togoinnov",
+      "run_tags": {
+        "Name": "jenkins-worker"
       }
-    ],
-    "provisioners" : [
-      {
-          "type" : "shell",
-          "script" : "./setup.sh",
-          "execute_command" : "sudo -E -S sh '{{ .Path }}'"
-      }
-    ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "./setup.sh",
+      "execute_command": "sudo -E -S sh '{{ .Path }}'"
+    }
+  ]
 }

@@ -1,46 +1,46 @@
 {
-  "variables" : {
+  "variables": {
     "region": "eu-central-1",
     "source_ami": "ami-0a6dc7529cd559185",
     "instance_type": "t2.micro",
     "ssh_key": "/home/bernard/.ssh/id_rsa"
   },
-  "builders" : [
+  "builders": [
     {
-      "type" : "amazon-ebs",
-      "access_key": "ACCESS-KEY",
-      "secret_key": "SECRET-KEY",
-      "region" : "{{user `region`}}",
-      "instance_type" : "{{user `instance_type`}}",
+      "type": "amazon-ebs",
+      "profile": "{{user `aws_profile`}}",
+      "region": "{{user `region`}}",
+      "instance_type": "{{user `instance_type`}}",
+      "iam_instance_profile": "packer-ec2-role",
       "source_ami": "{{user `source_ami`}}",
-      "ssh_username" : "ec2-user",
-      "ami_name" : "jenkins-master-XXXX-2.204.1",
-      "ami_description" : "Amazon Linux Image with Jenkins Server",
-      "run_tags" : {
-            "Name" : "jenkins-master"
-        }
+      "ssh_username": "ec2-user",
+      "ami_name": "jenkins-master-togoinnov-2.204.1",
+      "ami_description": "Amazon Linux Image with Jenkins Server for togoinnov",
+      "run_tags": {
+        "Name": "jenkins-master"
+      }
     }
   ],
-  "provisioners" : [
+  "provisioners": [
     {
-      "type" : "file",
-      "source" : "./scripts",
-      "destination" : "/tmp/"
+      "type": "file",
+      "source": "./scripts",
+      "destination": "/tmp/"
     },
     {
-      "type" : "file",
-      "source" : "./config",
-      "destination" : "/tmp/"
+      "type": "file",
+      "source": "./config",
+      "destination": "/tmp/"
     },
     {
-      "type" : "file",
-      "source" : "{{user `ssh_key`}}",
-      "destination" : "/tmp/id_rsa"
+      "type": "file",
+      "source": "{{user `ssh_key`}}",
+      "destination": "/tmp/id_rsa"
     },
     {
-      "type" : "shell",
-      "script" : "./setup.sh",
-      "execute_command" : "sudo -E -S sh '{{ .Path }}'"
+      "type": "shell",
+      "script": "./setup.sh",
+      "execute_command": "sudo -E -S sh '{{ .Path }}'"
     }
   ]
 }
